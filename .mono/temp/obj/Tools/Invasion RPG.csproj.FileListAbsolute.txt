@@ -1,0 +1,12 @@
+C:\Development\Godot\Invasion RPG\.mono\temp\bin\Tools\Invasion RPG.dll
+C:\Development\Godot\Invasion RPG\.mono\temp\bin\Tools\Invasion RPG.pdb
+C:\Development\Godot\Invasion RPG\.mono\temp\obj\Tools\Invasion RPG.csprojAssemblyReference.cache
+C:\Development\Godot\Invasion RPG\.mono\temp\obj\Tools\Invasion RPG.csproj.CoreCompileInputs.cache
+C:\Development\Godot\Invasion RPG\.mono\temp\obj\Tools\Invasion RPG.dll
+C:\Development\Godot\Invasion RPG\.mono\temp\obj\Tools\Invasion RPG.pdb
+C:\Development\Godot\C#\Invasion RPG\.mono\temp\bin\Tools\Invasion RPG.dll
+C:\Development\Godot\C#\Invasion RPG\.mono\temp\bin\Tools\Invasion RPG.pdb
+C:\Development\Godot\C#\Invasion RPG\.mono\temp\obj\Tools\Invasion RPG.csprojAssemblyReference.cache
+C:\Development\Godot\C#\Invasion RPG\.mono\temp\obj\Tools\Invasion RPG.csproj.CoreCompileInputs.cache
+C:\Development\Godot\C#\Invasion RPG\.mono\temp\obj\Tools\Invasion RPG.dll
+C:\Development\Godot\C#\Invasion RPG\.mono\temp\obj\Tools\Invasion RPG.pdb

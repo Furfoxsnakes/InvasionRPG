@@ -1,0 +1,6 @@
+C:\Development\Godot\Invasion RPG\.mono\temp\obj\Debug\Invasion RPG.csprojAssemblyReference.cache
+C:\Development\Godot\Invasion RPG\.mono\temp\obj\Debug\Invasion RPG.csproj.CoreCompileInputs.cache
+C:\Development\Godot\Invasion RPG\.mono\temp\bin\Debug\Invasion RPG.dll
+C:\Development\Godot\Invasion RPG\.mono\temp\bin\Debug\Invasion RPG.pdb
+C:\Development\Godot\Invasion RPG\.mono\temp\obj\Debug\Invasion RPG.dll
+C:\Development\Godot\Invasion RPG\.mono\temp\obj\Debug\Invasion RPG.pdb
