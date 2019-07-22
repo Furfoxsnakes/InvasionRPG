@@ -10,7 +10,7 @@ public class Spawn : Position2D
     private int _numMonstersSpawned = 0;
     public bool IsDoneSpawning = false;
 
-    [Export] private bool _isBoss = false;
+    [Export] public bool IsBoss = false;
 
     private Timer _respawnTimer;
     private Timer _spawnRateTimer;
@@ -24,7 +24,7 @@ public class Spawn : Position2D
     public void Start()
     {
         // do not spawn if this is a boss spawn point
-        if (_isBoss) return;
+        //if (IsBoss) return;
         
         SpawnMonster();
         //_respawnTimer.Start();
@@ -35,10 +35,7 @@ public class Spawn : Position2D
         Monster monster = _monsterToSpawn.Instance() as Monster;
         monster.Position = this.Position;
 
-        var game = GetNode("/root/Game");
-        game.AddChild(monster);
-
-        Game.AddBattler(monster);
+        Game.Arena.Spawn(monster);
 
         _numMonstersSpawned++;
 

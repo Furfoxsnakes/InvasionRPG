@@ -62,7 +62,7 @@ public class Monster : Battler
     public override void Kill()
     {
         base.Kill();
-        Game.RemoveBattler(this);
+        Game.Arena.RemoveBattler(this);
         QueueFree();
     }
 }

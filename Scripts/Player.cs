@@ -13,6 +13,8 @@ public class Player : Battler
 
     private Timer _fireRateTimer;
 
+    public bool IsActive = true;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -24,6 +26,9 @@ public class Player : Battler
 
     public override void _PhysicsProcess(float delta)
     {
+        // player can't do anything if they're not active
+        if (!IsActive) return;
+        
         HandleKeyboardMove(delta);
         HandleMouseMove();
         HandleMouseClick();
