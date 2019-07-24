@@ -12,6 +12,19 @@ public class Game : Node
     
     public static Arena Arena;
 
+    [Export]
+    public int Wave
+    {
+        get => _wave;
+        set
+        {
+            _wave = value;
+            this.PostNotification("Game.WaveUpdated");
+        }
+    }
+
+    private int _wave = 3;
+
     // Called when the node enters the scene tree for the first time.
     public override void _EnterTree()
     {
@@ -19,14 +32,20 @@ public class Game : Node
         this.AddObserver(OnWaveComplete, Arena.WaveCompleteNotification);
     }
 
-    private void OnWaveComplete(object sender, object args)
-    {
-        GetNode<WaveCompleteDialog>("WaveCompleteDialog").Show();
-        Player.IsActive = false;
-    }
-
     public override void _Ready()
     {
-        
+        Arena.StartWave(Wave);
+    }
+
+    private void OnWaveComplete(object sender, object args)
+    {
+        this.PostNotification(NotificationLabel.ShowNotification, $"WAVE {Wave} COMPLETED!!!");
+        Wave++;
+        GetNode<Timer>("TimeBetweenWaves").Start();
+    }
+    
+    private void _on_TimeBetweenWaves_timeout()
+    {
+        Arena.StartWave(Wave);
     }
 }

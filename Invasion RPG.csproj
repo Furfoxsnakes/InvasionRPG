@@ -74,7 +74,9 @@
     <Compile Include="Scripts\Projectile.cs" />
     <Compile Include="Scripts\Spawn.cs" />
     <Compile Include="Scripts\Stats.cs" />
-    <Compile Include="Scripts\WaveCompleteDialog.cs" />
+    <Compile Include="Scripts\UI\HealthLabel.cs" />
+    <Compile Include="Scripts\UI\NotificationLabel.cs" />
+    <Compile Include="Scripts\WaveCompleteLabel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

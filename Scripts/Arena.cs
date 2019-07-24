@@ -12,6 +12,8 @@ public class Arena : TileMap
 
     public static readonly string WaveCompleteNotification = "Arena.WaveComplete";
 
+    private int _currentWave;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -21,19 +23,18 @@ public class Arena : TileMap
         {
             _spawnPoints.Add(point as Spawn);
         }
+    }
 
-        foreach (var spawn in _spawnPoints)
-        {
-            if (spawn.IsBoss) continue;
-            
-            spawn.Start();
-        }
+    public void StartWave(int wave)
+    {
+        _currentWave = wave;
+        this.PostNotification(NotificationLabel.ShowNotification, $"WAVE {wave} STARTING!");
+        GetNode<Timer>("StartDelay").Start();
     }
 
     public void Spawn(Battler battler)
     {
-        //CallDeferred("add_child", battler);
-        AddChild(battler);
+        CallDeferred("add_child", battler);
         AddBattler(battler);
     }
 
@@ -50,6 +51,7 @@ public class Arena : TileMap
         if (_onBossWave)
         {
             this.PostNotification(WaveCompleteNotification);
+            _onBossWave = false;
             return;
         }
         
@@ -58,7 +60,7 @@ public class Arena : TileMap
             {
                 if (point.IsBoss)
                 {
-                    point.Start();
+                    point.Start(1);
                     _onBossWave = true;
                 }
             }
@@ -74,4 +76,17 @@ public class Arena : TileMap
 
         _spawnedBattlers.Add(battler);
     }
+    
+    private void _on_StartDelay_timeout()
+    {
+        foreach (var spawn in _spawnPoints)
+        {
+            if (spawn.IsBoss) continue;
+            
+            spawn.Start(_currentWave);
+        }
+    }
 }
+
+
+

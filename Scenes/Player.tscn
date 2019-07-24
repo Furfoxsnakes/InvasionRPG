@@ -551,6 +551,9 @@ anims/WalkUp = SubResource( 6 )
 anims/WalkUpLeft = SubResource( 7 )
 anims/WalkUpRight = SubResource( 8 )
 
+[node name="Stats" parent="." index="3"]
+_data = PoolIntArray( 0, 0, 100, 0, 0 )
+
 [node name="AttackTimer" parent="." index="4"]
 wait_time = 0.25
 

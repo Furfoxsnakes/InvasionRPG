@@ -6,7 +6,7 @@ public class Spawn : Position2D
     [Export]
     private PackedScene _monsterToSpawn;
 
-    [Export] public int NumMonstersPerWave = 1;
+    private int _numMonstersPerWave;
     private int _numMonstersSpawned = 0;
     public bool IsDoneSpawning = false;
 
@@ -21,23 +21,23 @@ public class Spawn : Position2D
         _spawnRateTimer = GetNode<Timer>("SpawnRate");
     }
 
-    public void Start()
+    public void Start(int numToSpawn)
     {
-        // do not spawn if this is a boss spawn point
-        //if (IsBoss) return;
+        _numMonstersPerWave = numToSpawn;
         
         SpawnMonster();
-        //_respawnTimer.Start();
     }
 
     private void SpawnMonster()
     {
         Monster monster = _monsterToSpawn.Instance() as Monster;
-        monster.Position = this.Position;
+        monster.Position = Position;
 
         Game.Arena.Spawn(monster);
 
         _numMonstersSpawned++;
+        
+        GD.Print($"{_numMonstersSpawned}/{_numMonstersPerWave} spawned");
 
         if (_spawnRateTimer.IsStopped())
             _spawnRateTimer.Start();
@@ -45,10 +45,11 @@ public class Spawn : Position2D
     
     private void _on_SpawnRate_timeout()
     {
-        if (_numMonstersSpawned >= NumMonstersPerWave)
+        if (_numMonstersSpawned >= _numMonstersPerWave)
         {
             _spawnRateTimer.Stop();
             IsDoneSpawning = true;
+            _numMonstersSpawned = 0;
             return;
         }
         
